@@ -1,5 +1,12 @@
 import random
 import time
+def naiveSearch(list, target):
+     for i in range(len(list)):
+          if list[i]==target:
+               return i
+         
+     return -1
+     
 def binarySearch(list,target,low=None,high=None):
     if low==None:
          low=0
@@ -30,4 +37,10 @@ start=time.time()
 for target in target_list:
      binarySearch(sorted_list,target)
 end=time.time()
-print(f"it took {end-start} second to search {length} items in sorted list")
+print(f"it took {end-start} second to search {length} items in sorted list with binary search")
+
+start=time.time()
+for target in target_list:
+     naiveSearch(sorted_list,target)
+end=time.time()
+print(f"it took {end-start} second to search {length} items in sorted list with naive search")
